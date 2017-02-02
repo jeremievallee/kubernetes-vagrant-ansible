@@ -1,17 +1,5 @@
 ---
 
-- name:      Overide Kubelet service config to add IP Address
-  become:    true
-  template:
-    src:     "10-kubeadm.conf"
-    dest:    "/etc/systemd/system/kubelet.service.d/10-kubeadm.conf"
-  notify:
-    - reload systemd
-
-- name:      Wait a few seconds
-  pause:
-    seconds: "20"
-
 - name:      Join Kubernetes Cluster
   become:    true
   shell:     kubeadm join --token={{ kubeadm_token }} {{ kubernetes_master_ip }}

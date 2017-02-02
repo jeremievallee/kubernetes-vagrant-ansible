@@ -1,6 +1,10 @@
 ---
 
-- hosts: all-nodes
+- hosts: etcd
+  roles:
+    - etcd
+
+- hosts: all-k8s-nodes
   roles:
     - kubernetes-common
 

@@ -1,4 +1,5 @@
 ---
 
 kubernetes_master_ip: "172.16.66.2"
-kubeadm_token:        "jfuw63.1osue85lsh973hbf"
+kubeadm_token:        "407c78.02d01083a6f507d1"
+etcd_endpoint:        "http://172.16.66.6:2379"

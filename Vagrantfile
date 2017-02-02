@@ -2,7 +2,8 @@ nodes = [
   { :hostname => 'kubernetes-master',  :ip => '172.16.66.2', :ram => 4096 },
   { :hostname => 'kubernetes-node1',  :ip => '172.16.66.3', :ram => 2048 },
   { :hostname => 'kubernetes-node2',  :ip => '172.16.66.4', :ram => 2048 },
-  { :hostname => 'kubernetes-node3',  :ip => '172.16.66.5', :ram => 2048 }
+  { :hostname => 'kubernetes-node3',  :ip => '172.16.66.5', :ram => 2048 },
+  { :hostname => 'etcd-1',  :ip => '172.16.66.6', :ram => 512 }
 ]
 
 Vagrant.configure("2") do |config|

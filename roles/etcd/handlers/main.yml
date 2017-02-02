@@ -1,0 +1,10 @@
+---
+- name: Reload systemd
+  become: true
+  command: systemctl daemon-reload
+
+- name: Restart etcd
+  become: true
+  service: name=etcd
+           state=restarted
+           enabled=yes
