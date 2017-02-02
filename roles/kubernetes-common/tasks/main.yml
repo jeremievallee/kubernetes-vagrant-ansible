@@ -1,0 +1,30 @@
+---
+
+- name:           Add APT Key for Kubernetes
+  become:         true
+  apt_key:
+    url:          "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
+    state:        "present"
+
+- name:           Add Repo
+  become:         true
+  apt_repository:
+    repo:         "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+    state:        "present"
+
+- name:           Apt Get Update
+  become:         true
+  apt:
+    update_cache: "yes"
+
+- name:           Install packages
+  become:         true
+  apt:
+    name:         "{{ item }}"
+    state:        "present"
+  with_items:
+    - docker.io
+    - kubelet
+    - kubeadm
+    - kubectl
+    - kubernetes-cni
